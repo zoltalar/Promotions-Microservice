@@ -3,11 +3,11 @@
 namespace App\Controller;
 
 use App\DTO\LowestPriceInquiry;
+use App\Service\Serializer\DTOSerializer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\SerializerInterface;
 
 class ProductController extends AbstractController
 {
@@ -15,8 +15,8 @@ class ProductController extends AbstractController
     public function lowestPrice(
         Request $request,
         int $id,
-        SerializerInterface $serializer
-    ): JsonResponse
+        DTOSerializer $serializer
+    ): Response
     {
         $lowestPriceInquiry = $serializer->deserialize(
             $request->getContent(), 
@@ -24,14 +24,12 @@ class ProductController extends AbstractController
             'json'
         );
         
-        dd($lowestPriceInquiry);
+        $lowestPriceInquiry->setDiscountedPrice(50);
         
-        return new JsonResponse([
-            'quantity' => 5,
-            'country_name' => 'Poland',
-            'voucher_code' => 'DH-715',
-            'request_date' => date('Y-m-d'),
-            'product_id' => $id
-        ], 200);
+        $responseContent = $serializer->serialize($lowestPriceInquiry, 'json');
+        
+        return new Response($responseContent, 200, [
+            'Content-Type' => 'application/json'
+        ]);
     }
 }
