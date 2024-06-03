@@ -1,5 +1,7 @@
 <?php
 
+namespace App\DTO;
+
 interface PromotionInquiryInterface
 {
     public function getPromotionId(): ?int;

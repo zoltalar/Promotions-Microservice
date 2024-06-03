@@ -23,7 +23,7 @@ final class LowestPriceInquiry implements PromotionInquiryInterface
     private ?string $promotionName;
     
     // --------------------------------------------------
-    // Accessors and Mutators
+    // Getters and Setters
     // --------------------------------------------------
     
     public function getProductId(): ?int
