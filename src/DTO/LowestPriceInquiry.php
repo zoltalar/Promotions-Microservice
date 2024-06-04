@@ -3,11 +3,13 @@
 namespace App\DTO;
 
 use App\Entity\Product;
+use Symfony\Component\Validator\Constraints as Assert;
 
 final class LowestPriceInquiry implements PriceInquiryInterface
 {
     private ?Product $product;
     
+    #[Assert\Positive]
     private ?int $quantity = 1;
     
     private ?string $countryName;
