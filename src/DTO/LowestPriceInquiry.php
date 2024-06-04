@@ -2,9 +2,11 @@
 
 namespace App\DTO;
 
+use App\Entity\Product;
+
 final class LowestPriceInquiry implements PromotionInquiryInterface
 {
-    private ?int $productId;
+    private ?Product $product;
     
     private ?int $quantity;
     
@@ -26,14 +28,14 @@ final class LowestPriceInquiry implements PromotionInquiryInterface
     // Getters and Setters
     // --------------------------------------------------
     
-    public function getProductId(): ?int
+    public function getProduct(): ?Product
     {
-        return $this->productId;
+        return $this->product;
     }
     
-    public function setProductId(?int $productId): static
+    public function setProduct(?Product $product): static
     {
-        $this->productId = $productId;
+        $this->product = $product;
         
         return $this;
     }

@@ -12,10 +12,14 @@ class ProductFixtures extends Fixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $product = new Product();
-        $product->setName('Nike Shoes');
         $product->setPrice(49.99);
                 
         $manager->persist($product);
+        
+        $product = new Product();
+        $product->setPrice(129.99);
+        
+        $manager->persist($product);        
         $manager->flush();
     }
     

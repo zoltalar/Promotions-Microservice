@@ -6,7 +6,10 @@ use App\DTO\PromotionInquiryInterface;
 
 class LowestPriceFilter implements PromotionFilterInterface
 {
-    public function apply(PromotionInquiryInterface $inquiry): PromotionInquiryInterface 
+    public function apply(
+        PromotionInquiryInterface $inquiry,
+        array $promotions
+    ): PromotionInquiryInterface 
     {
         return $inquiry
             ->setPromotionId(1)
