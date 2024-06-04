@@ -12,7 +12,13 @@ class LowestPriceFilterTest extends ServiceTestCase
 {
     public function testLowestPriceFilter(): void
     {
+        $product = new Product();
+        $product->setPrice(49.99);
+        
         $inquiry = new LowestPriceInquiry();
+        $inquiry->setProduct($product);
+        $inquiry->setQuantity(5);
+        
         $promotions = $this->getPromotionsDataProvider();
         
         $lowestPriceFilter = $this->container->get(LowestPriceFilter::class);
