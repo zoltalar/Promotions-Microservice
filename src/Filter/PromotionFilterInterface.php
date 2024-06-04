@@ -2,12 +2,12 @@
 
 namespace App\Filter;
 
-use App\DTO\PromotionInquiryInterface;
+use App\DTO\PriceInquiryInterface;
 
 interface PromotionFilterInterface
 {
     public function apply(
-        PromotionInquiryInterface $inquiry, 
+        PriceInquiryInterface $inquiry, 
         array $promotions
-    ): PromotionInquiryInterface;
+    ): PriceInquiryInterface;
 }

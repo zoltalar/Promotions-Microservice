@@ -4,11 +4,11 @@ namespace App\DTO;
 
 use App\Entity\Product;
 
-final class LowestPriceInquiry implements PromotionInquiryInterface
+final class LowestPriceInquiry implements PriceInquiryInterface
 {
     private ?Product $product;
     
-    private ?int $quantity;
+    private ?int $quantity = 1;
     
     private ?string $countryName;
     

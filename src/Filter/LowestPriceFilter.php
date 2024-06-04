@@ -2,17 +2,17 @@
 
 namespace App\Filter;
 
-use App\DTO\PromotionInquiryInterface;
+use App\DTO\PriceInquiryInterface;
 
 class LowestPriceFilter implements PromotionFilterInterface
 {
     public function apply(
-        PromotionInquiryInterface $inquiry,
+        PriceInquiryInterface $inquiry,
         array $promotions
-    ): PromotionInquiryInterface 
+    ): PriceInquiryInterface 
     {
         return $inquiry
-            ->setPromotionId(1)
-            ->setPromotionName('Buy one get one free!');
+            ->setPrice(50.00)
+            ->setDiscountedPrice(19.99);
     }
 }
